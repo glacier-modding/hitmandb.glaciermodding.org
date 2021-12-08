@@ -1,0 +1,124 @@
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+	<link rel='shortcut icon' href='/favicon.ico' />
+	<link rel="stylesheet" href="main.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js">
+	</script>
+	<script type="text/javascript" src="hashsearch.js">
+	</script>
+	<title>HitmanDB</title>
+</head>
+
+<body>
+	<div class="header">
+		<p>
+			<label>Search:</label>
+			<input type="text" id="search_input" size="20" onkeyup="searchhashlist('0')">
+			<label>Resource Type:</label>
+			<select id="resourcetype" onchange="searchhashlist('0')">
+				<option value="any" selected="selected">ANY</option>
+				<option value="aibb">AIBB</option>
+				<option value="aibx">AIBX</option>
+				<option value="aibz">AIBZ</option>
+				<option value="airg">AIRG</option>
+				<option value="aloc">ALOC</option>
+				<option value="aseb">ASEB</option>
+				<option value="aset">ASET</option>
+				<option value="asva">ASVA</option>
+				<option value="atmd">ATMD</option>
+				<option value="blob">BLOB</option>
+				<option value="bmsk">BMSK</option>
+				<option value="borg">BORG</option>
+				<option value="cblu">CBLU</option>
+				<option value="clng">CLNG</option>
+				<option value="cppt">CPPT</option>
+				<option value="crmd">CRMD</option>
+				<option value="ditl">DITL</option>
+				<option value="dlge">DLGE</option>
+				<option value="ecpb">ECPB</option>
+				<option value="ecpt">ECPT</option>
+				<option value="enum">ENUM</option>
+				<option value="eres">ERES</option>
+				<option value="fxac">FXAC</option>
+				<option value="fxas">FXAS</option>
+				<option value="gfxf">GFXF</option>
+				<option value="gfxi">GFXI</option>
+				<option value="gfxv">GFXV</option>
+				<option value="gidx">GIDX</option>
+				<option value="hikc">HIKC</option>
+				<option value="imap">IMAP</option>
+				<option value="json">JSON</option>
+				<option value="line">LINE</option>
+				<option value="locr">LOCR</option>
+				<option value="matb">MATB</option>
+				<option value="mate">MATE</option>
+				<option value="mati">MATI</option>
+				<option value="matt">MATT</option>
+				<option value="mjba">MJBA</option>
+				<option value="mrtn">MRTN</option>
+				<option value="mrtr">MRTR</option>
+				<option value="navp">NAVP</option>
+				<option value="ores">ORES</option>
+				<option value="prel">PREL</option>
+				<option value="prim">PRIM</option>
+				<option value="repo">REPO</option>
+				<option value="rtlv">RTLV</option>
+				<option value="scda">SCDA</option>
+				<option value="sdef">SDEF</option>
+				<option value="slmx">SLMX</option>
+				<option value="tblu">TBLU</option>
+				<option value="teli">TELI</option>
+				<option value="temp">TEMP</option>
+				<option value="texd">TEXD</option>
+				<option value="text">TEXT</option>
+				<option value="uicb">UICB</option>
+				<option value="uict">UICT</option>
+				<option value="vidb">VIDB</option>
+				<option value="vtxd">VTXD</option>
+				<option value="wbnk">WBNK</option>
+				<option value="wsgb">WSGB</option>
+				<option value="wsgt">WSGT</option>
+				<option value="wswb">WSWB</option>
+				<option value="wswt">WSWT</option>
+				<option value="wwem">WWEM</option>
+				<option value="wwes">WWES</option>
+				<option value="wwev">WWEV</option>
+				<option value="yshp">YSHP</option>
+			</select>
+			<label>Results per page: </label>
+			<select id="resultsperpage" onchange="searchhashlist('0')">
+				<option value="5">5</option>
+				<option value="10">10</option>
+				<option value="25">25</option>
+				<option value="50" selected="selected">50</option>
+				<option value="100">100</option>
+				<option value="150">150</option>
+				<option value="200">200</option>
+			</select>
+			<label id="headerarrows"></label>
+			<a id="apidocs" href="https://wiki.notex.app/hitmandb/api">API Documentation</a>
+			<a id="latesthashes" href="latest-hashes.7z">Download hash list</a>
+		<table width="100%">
+			<thead>
+				<tr> </tr>
+			</thead>
+		</table>
+		</p>
+	</div>
+	<div>
+		<table id="main_table" width="100%">
+			<thead>
+				<tr>
+					<th width="146px" align="left">Hash </th>
+					<th width="45px" align="left">Type </th>
+					<th align="left">String </th>
+				</tr>
+			</thead>
+			<tbody id="main_table_body"> </tbody>
+		</table>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+@import url('https://rsms.me/inter/inter.css');
+
+body {
+    background-color: #232425;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 450;
+}
+
+select {
+    margin-right: 10px
+}
+
+label {
+    margin-right: 10px
+}
+
+input {
+    border: 2px solid #05be99;
+    border-radius: 4px;
+    margin-right: 10px
+}
+
+input:focus {
+    outline-width: 0
+}
+
+table {
+    font-size: 15px;
+    font-family: monospace
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+    color: #fff;
+    text-decoration: none
+}
+
+#apidocs {
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: #D30707;
+    box-shadow: 0 5px 0 #920404;
+    color: white;
+    padding: 0.1em 0.5em;
+}   
+
+#apidocs:hover {
+    background-color: #b10606;
+}
+
+#latesthashes {
+    text-transform: uppercase;
+    background-color: #666666;
+    box-shadow: 0 5px 0 #3a3a3a;
+    color: white;
+    padding: 0.1em 0.5em;
+}
+
+#latesthashes:hover {
+    background-color: #525252;
+}
