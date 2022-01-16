@@ -38,6 +38,15 @@ a:visited {
     text-decoration: none
 }
 
+.header{
+    background-color: #232425;
+    padding-top: 0.5%;
+    top: 0;
+    position: -webkit-sticky;
+    position: sticky;
+    z-index:  990;
+}
+
 #apidocs {
     text-decoration: none;
     text-transform: uppercase;
@@ -61,4 +70,59 @@ a:visited {
 
 #latesthashes:hover {
     background-color: #525252;
+}
+
+#copy_text_box { 
+    position: relative;
+    padding-bottom: 100px;
+    z-index: index -10;
+  }
+
+#tree_node_selected{
+    z-index:-10;
+}
+
+#tree_node_selected_input{
+    color: white;
+    width: 99%;
+    font-family: 'Inter', sans-serif;
+    font-weight: 450;
+    font-size: medium;
+    border:  1px solid gray;
+    position: absolute;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: transparent;
+    z-index:index -10;
+}
+
+#tree_copy_button{
+    top: 15;
+    right: 1;
+    padding: 5px;
+    width: 5%;
+    position: absolute;
+    color: black;
+    font-family: 'Inter', sans-serif;
+    background-color: #05be99;
+    border-color: transparent;
+    font-size: medium;
+    border-radius: 5px;
+    z-index: index +10;
+}
+
+#tree_copy_button:hover{
+    background-color: #09e6b9;
+}
+
+#underline{
+    padding-top: 1%;
+    border-bottom: 2px solid #05be99;
+    display:block;
+}
+
+#js-tree{
+    visibility: hidden;
+    background-color: rgba(25, 26, 27, 0.596);
+    padding: 15px;
 }

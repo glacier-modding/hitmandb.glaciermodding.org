@@ -3,19 +3,29 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=windows-1252">
 	<link rel='shortcut icon' href='/favicon.ico' />
-	<link rel="stylesheet" href="main.css">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js">
-	</script>
-	<script type="text/javascript" src="hashsearch.js">
-	</script>
+	<link rel="stylesheet" href="main.css" />
+	<link rel="stylesheet" href="3rd party/jstree/themes/notex-app/style.min.css" />
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="3rd party/jstree/jstree.min.js"></script>
+
+	<script type="text/javascript" src="hashsearch.js"></script>
+	<script type="text/javascript" src="tree_utils.js"></script>
+
 	<title>HitmanDB</title>
 </head>
+
 
 <body>
 	<div class="header">
 		<p>
 			<label>Search:</label>
 			<input type="text" id="search_input" size="20" onkeyup="searchhashlist('0')" autofocus>
+			<label>view:</label>
+			<select id="viewtype" onchange="searchhashlist('0')">
+				<option value="list">List</option>
+				<option value="tree">Tree</option>
+			</select>
 			<label>Resource Type:</label>
 			<select id="resourcetype" onchange="searchhashlist('0')">
 				<option value="any" selected="selected">ANY</option>
@@ -96,6 +106,7 @@
 				<option value="100">100</option>
 				<option value="150">150</option>
 				<option value="200">200</option>
+				<option value="500">500</option>
 			</select>
 			<label id="headerarrows"></label>
 			<a id="apidocs" href="https://wiki.notex.app/hitmandb/api">API Documentation</a>
@@ -106,9 +117,11 @@
 			</thead>
 		</table>
 		</p>
+		<span id="underline"></span>
 	</div>
+
 	<div>
-		<table id="main_table" width="100%">
+		<table id="main_table" width="100%" style="visibility: hidden;">
 			<thead>
 				<tr>
 					<th width="146px" align="left">Hash </th>
@@ -119,6 +132,42 @@
 			<tbody id="main_table_body"> </tbody>
 		</table>
 	</div>
+
+	<div id="tree_node_selected" style="visibility: hidden;">
+		<div><label>selected node:</label></div>
+		<div id="copy_text_box">
+			<p id="tree_node_selected_input">_</p>
+			<button id="tree_copy_button" onclick="copy_selected();">copy</button>
+		</div>
+	</div>
+
+	<div id="js-tree"></div> <!-- js-tree div to potentially be filled during runtime -->
+
+	<script>
+		//init empty tree
+		$('#js-tree').jstree({
+			'core': {
+				'data': [],
+				check_callback: true
+			}
+		});
+
+		//tree node onclick
+		$('#js-tree').on("changed.jstree", function (e, data) {
+			var selectedPath = $("#js-tree").jstree("get_node", data.selected).data;
+			document.getElementById("tree_node_selected_input").innerHTML = selectedPath;
+		});
+
+		//copy button onclick function
+		function copy_selected(){
+			var text = document.getElementById("tree_node_selected_input").innerHTML;
+			navigator.clipboard.writeText(text).then(function () {
+			}, function (err) {
+				console.error('Async: Could not copy text: ', err);
+			});
+		};
+	</script>
+
 </body>
 
 </html>
