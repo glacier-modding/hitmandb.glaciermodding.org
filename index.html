@@ -1,16 +1,20 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+	<meta charset=utf-8>
+	<meta name="description" content="Hitman database to search game file hashes effectively.">
+	<meta name=viewport content='width=device-width, initial-scale=1'>
 	<link rel='shortcut icon' href='/favicon.ico' />
 	<link rel="stylesheet" href="main.css" />
-	<link rel="stylesheet" href="3rd party/jstree/themes/notex-app/style.min.css" />
+	<link rel="stylesheet" href="3rd party/jstree/themes/notex-app/style.min.css" media="print" onload="this.media='all'; this.onload=null;">
+	<link rel="stylesheet" href="https://rsms.me/inter/inter.css" media="print" onload="this.media='all'; this.onload=null;">
 
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script type="text/javascript" src="3rd party/jstree/jstree.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+	<script type="text/javascript" src="3rd party/jstree/jstree.min.js" defer></script>
 
-	<script type="text/javascript" src="hashsearch.js"></script>
-	<script type="text/javascript" src="tree_utils.js"></script>
+	<script type="text/javascript" src="hashsearch.js" defer></script>
+	<script type="text/javascript" src="tree_utils.js" defer></script>
 
 	<title>HitmanDB</title>
 </head>
@@ -146,31 +150,7 @@
 	</div>
 
 	<div id="js-tree"></div> <!-- js-tree div to potentially be filled during runtime -->
-
-	<script>
-		//init empty tree
-		$('#js-tree').jstree({
-			'core': {
-				'data': [],
-				check_callback: true
-			}
-		});
-
-		//tree node onclick
-		$('#js-tree').on("changed.jstree", function (e, data) {
-			var selectedPath = $("#js-tree").jstree("get_node", data.selected).data;
-			document.getElementById("tree_node_selected_input").innerHTML = selectedPath;
-		});
-
-		//copy button onclick function
-		function copy_selected(){
-			var text = document.getElementById("tree_node_selected_input").innerHTML;
-			navigator.clipboard.writeText(text).then(function () {
-			}, function (err) {
-				console.error('Async: Could not copy text: ', err);
-			});
-		};
-	</script>
+	<script src="tree_utils.js" defer></script>
 
 </body>
 
