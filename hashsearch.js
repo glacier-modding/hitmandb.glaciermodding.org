@@ -22,7 +22,7 @@ function searchhashlist(index) {
             data: JSON.stringify(reqJson),
             dataType: "json",
             error: function () {
-                ajaxlert("Error occurred during search.");
+                console.error("Error occurred during search.");
             },
             success: function (res) {
                 let mainTableBody = document.getElementById("main_table_body");
@@ -30,7 +30,7 @@ function searchhashlist(index) {
                     mainTableBody.firstChild.remove()
                     headerArrows.innerHTML = ""
                 }
-                
+
                 $("#js-tree").jstree("delete_node",($("#js-tree").jstree("get_node", "#").children));
 
                 let results = res["results"]
@@ -44,7 +44,7 @@ function searchhashlist(index) {
                     let type = results[i].type
                     let string = results[i].string
 
-                    if (view_type == 'list') {
+                    if (view_type === 'list') {
                         document.getElementById("main_table").style.visibility='visible';
                         document.getElementById("tree_node_selected").style.visibility="hidden";
                         document.getElementById("js-tree").style.visibility="hidden";
@@ -65,7 +65,7 @@ function searchhashlist(index) {
 
                             mainTableBody.appendChild(tableRow)
 
-                            if (i == results.length - 1) {
+                            if (i === results.length - 1) {
                                 let results_per_page_num = res.number_of_results
                                 let results_per_page_index_num = res.page_number
                                 if (!isNaN(results_per_page_num) && !isNaN(results_per_page_index_num)) {
@@ -92,12 +92,12 @@ function searchhashlist(index) {
                         }
                     }
 
-                    if(view_type == 'tree'){
+                    if(view_type === 'tree'){
                         document.getElementById("main_table").style.visibility='hidden';
                         document.getElementById("tree_node_selected").style.visibility="visible";
                         document.getElementById("js-tree").style.visibility="visible";
 
-                        if (string != "" && !string.includes("*") && string.includes("[")) {
+                        if (string !== "" && !string.includes("*") && string.includes("[")) {
                             let newPath = string.split("]")[0].replaceAll("[", "") + " (" + type.toLowerCase() + ")";
                             addToTree(newPath, string);
                         }
