@@ -42,7 +42,7 @@ a:visited {
     top: 0;
     position: -webkit-sticky;
     position: sticky;
-    z-index:  990;
+    z-index: 990;
 }
 
 #apidocs {
@@ -77,7 +77,7 @@ a:visited {
   }
 
 #tree_node_selected{
-    z-index:-10;
+    z-index: -10;
 }
 
 #tree_node_selected_input{
@@ -95,8 +95,8 @@ a:visited {
 }
 
 #tree_copy_button{
-    top: 15;
-    right: 1;
+    top: 15px;
+    right: 1px;
     padding: 5px;
     width: 5%;
     position: absolute;
